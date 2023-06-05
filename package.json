@@ -1,0 +1,32 @@
+{
+  "name": "boiler-plate",
+  "version": "1.0.0",
+  "description": "boiler-plate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evelo0702/Boiler-plate.git"
+  },
+  "author": "evelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evelo0702/Boiler-plate/issues"
+  },
+  "homepage": "https://github.com/evelo0702/Boiler-plate#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
