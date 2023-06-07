@@ -7,10 +7,17 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 const { auth } = require("./middleware/auth");
+const cors = require("cors");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
+const corsOptions = {
+  origin: "http://localhost:3000", // 허용할 도메인 설정
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 mongoose
   .connect(config.mongoURI)
   .then(() => console.log("MongoDB Connected..."))
@@ -25,7 +32,7 @@ app.post("/api/users/register", async (req, res) => {
     .save()
     .then(() => {
       res.status(200).json({
-        sucess: true,
+        success: true,
       });
     })
     .catch((err) => {
@@ -88,4 +95,5 @@ app.get("/api/users/logout", auth, (req, res) => {
       return res.json({ success: false, err });
     });
 });
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
